@@ -14,7 +14,6 @@ public class Menu {
         System.out.println("7. Salir");
         System.out.println("*************************************");
         Converter.inputAPIKey();
-        System.out.println("*************************************");
         inputOption();
     }
 
@@ -23,7 +22,8 @@ public class Menu {
         boolean continueLoop = true;
 
         while (continueLoop) {
-            System.out.println("Ingrese una opción:");
+            System.out.println("-------------------------");
+            System.out.print("Ingrese una opción: ");
             int option = scn.nextInt();
             continueLoop = chooseOption(option);
         }
@@ -32,10 +32,8 @@ public class Menu {
 
     public double inputValue() {
         Scanner scn = new Scanner(System.in);
-        System.out.println("Ingrese el valor a convertir:");
-        double value = scn.nextDouble();
-        System.out.println("Valor ingresado: " + value);
-        return value;
+        System.out.print("Ingrese el valor a convertir: ");
+        return scn.nextDouble();
     }
 
     private boolean chooseOption(int option) {

@@ -40,10 +40,8 @@ public class Converter {
     // methods
     public static void inputAPIKey() {
         Scanner scn = new Scanner(System.in);
-        System.out.println("-------------------------");
-        System.out.println("Ingrese la API Key:");
+        System.out.print("Ingrese la API Key:");
         Converter.API_KEY = scn.nextLine();
-        System.out.println("-------------------------");
     }
 
     public void requestAPI(double value) {
