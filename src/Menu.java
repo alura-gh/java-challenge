@@ -13,34 +13,65 @@ public class Menu {
         System.out.println("6. Pesos colombianos => Dólar");
         System.out.println("7. Salir");
         System.out.println("*************************************");
+        Converter.inputAPIKey();
+        System.out.println("*************************************");
+        inputOption();
     }
 
     public void inputOption() {
         Scanner scn = new Scanner(System.in);
-        boolean iterator;
+        boolean continueLoop = true;
 
-        do {
+        while (continueLoop) {
             System.out.println("Ingrese una opción:");
             int option = scn.nextInt();
-            iterator = chooseOption(option);
-        } while (iterator);
+            continueLoop = chooseOption(option);
+        }
+        scn.close();
+    }
+
+    public double inputValue() {
+        Scanner scn = new Scanner(System.in);
+        System.out.println("Ingrese el valor a convertir:");
+        double value = scn.nextDouble();
+        System.out.println("Valor ingresado: " + value);
+        return value;
     }
 
     private boolean chooseOption(int option) {
         switch (option) {
             case 1:
-                return false;
+                Converter converter1 = new Converter("USD", "ARS");
+                double value = inputValue();
+                converter1.requestAPI(value);
+                return true;
             case 2:
-                return false;
+                Converter converter2 = new Converter("ARS", "USD");
+                double value2 = inputValue();
+                converter2.requestAPI(value2);
+                return true;
             case 3:
-                return false;
+                Converter converter3 = new Converter("USD", "BRL");
+                double value3 = inputValue();
+                converter3.requestAPI(value3);
+                return true;
             case 4:
-                return false;
+                Converter converter4 = new Converter("BRL", "USD");
+                double value4 = inputValue();
+                converter4.requestAPI(value4);
+                return true;
             case 5:
-                return false;
+                Converter converter5 = new Converter("USD", "COP");
+                double value5 = inputValue();
+                converter5.requestAPI(value5);
+                return true;
             case 6:
-                return false;
+                Converter converter6 = new Converter("COP", "USD");
+                double value6 = inputValue();
+                converter6.requestAPI(value6);
+                return true;
             case 7:
+                System.out.println("Saliendo del programa...");
                 return false;
             default:
                 System.out.print("Opcion no válida. ");

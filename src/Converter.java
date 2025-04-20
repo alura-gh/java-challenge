@@ -38,7 +38,7 @@ public class Converter {
     }
 
     // methods
-    public void inputAPIKey() {
+    public static void inputAPIKey() {
         Scanner scn = new Scanner(System.in);
         System.out.println("-------------------------");
         System.out.println("Ingrese la API Key:");
@@ -46,7 +46,7 @@ public class Converter {
         System.out.println("-------------------------");
     }
 
-    private void requestAPI() {
+    public void requestAPI(double value) {
         try {
             HttpClient client = HttpClient.newHttpClient();
 
@@ -57,8 +57,10 @@ public class Converter {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             String data = response.body();
 
-            Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
-
+            Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create();
+            ResultRecord resultRecord = gson.fromJson(data, ResultRecord.class);
+            ResultModel resultModel = new ResultModel(resultRecord, value);
+            System.out.println(resultModel);
 
         } catch (IOException e) {
             System.out.println("Error de entrada/salida: " + e.getMessage());
