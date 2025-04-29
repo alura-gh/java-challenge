@@ -5,6 +5,8 @@ public class Menu {
         System.out.println("*************************************");
         System.out.println("Bienvenido/a al Conversor de Monedas");
         System.out.println("-------------------------------------");
+        Converter.inputAPIKey();
+        System.out.println("-------------------------------------");
         System.out.println("1. Dólar => Pesos argentinos");
         System.out.println("2. Pesos argentinos => Dólar");
         System.out.println("3. Dólar => Reales brasileños");
@@ -13,7 +15,6 @@ public class Menu {
         System.out.println("6. Pesos colombianos => Dólar");
         System.out.println("7. Salir");
         System.out.println("*************************************");
-        Converter.inputAPIKey();
         inputOption();
     }
 
